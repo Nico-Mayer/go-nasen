@@ -21,6 +21,7 @@ func main() {
 
 func handleRequests() {
 	http.HandleFunc("/user/create", controllers.CreateUser)
+	http.HandleFunc("/nase/create", controllers.CreateNase)
 
 	fmt.Println("Server listening on PORT: " + config.PORT)
 	log.Fatal(http.ListenAndServe(":"+config.PORT, nil))

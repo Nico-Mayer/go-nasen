@@ -11,7 +11,7 @@ type User struct {
 	Name string `json:"name"`
 }
 
-func InsertUser(user User) error {
+func InsertUser(user *User) error {
 	_, err := db.DB.Exec("INSERT INTO users (id, name) VALUES ($1, $2)", user.ID, user.Name)
 	if err != nil {
 		panic(err)

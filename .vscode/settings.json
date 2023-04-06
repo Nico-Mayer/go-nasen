@@ -1,14 +1,17 @@
 {
 	"cSpell.words": [
+		"authorid",
 		"dbname",
 		"godotenv",
 		"joho",
+		"nasen",
 		"PGDATABASE",
 		"PGHOST",
 		"PGPASSWORD",
 		"PGPORT",
 		"PGUSER",
-		"sslmode"
+		"sslmode",
+		"userid"
 	],
 	"files.exclude": {
 		"**/.git": true,
