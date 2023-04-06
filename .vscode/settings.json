@@ -1,4 +1,8 @@
 {
+	"cSpell.words": [
+		"godotenv",
+		"joho"
+	],
 	"files.exclude": {
 		"**/.git": true,
 		"**/.svn": true,
@@ -11,6 +15,5 @@
 		"**/.settings": true,
 		"**/.factorypath": true
 	},
-	"hide-files.files": [],
-	"cSpell.words": ["godotenv", "joho"]
+	"hide-files.files": []
 }
