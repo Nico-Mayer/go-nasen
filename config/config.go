@@ -13,9 +13,11 @@ var (
 )
 
 func init() {
-	err := loadEnv()
-	if err != nil {
-		panic("Error loading .env file")
+	if os.Getenv("ENV") != "PROD" {
+		err := loadEnv()
+		if err != nil {
+			panic("Error loading .env file")
+		}
 	}
 
 	PORT = getEnv("PORT", "8080")
