@@ -1,7 +1,14 @@
 {
 	"cSpell.words": [
+		"dbname",
 		"godotenv",
-		"joho"
+		"joho",
+		"PGDATABASE",
+		"PGHOST",
+		"PGPASSWORD",
+		"PGPORT",
+		"PGUSER",
+		"sslmode"
 	],
 	"files.exclude": {
 		"**/.git": true,
@@ -13,7 +20,8 @@
 		"**/.classpath": true,
 		"**/.project": true,
 		"**/.settings": true,
-		"**/.factorypath": true
+		"**/.factorypath": true,
+		".vscode": true
 	},
-	"hide-files.files": []
+	"hide-files.files": [".vscode"]
 }

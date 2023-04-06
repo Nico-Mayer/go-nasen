@@ -8,20 +8,33 @@ import (
 )
 
 var (
-	PORT   string
-	DB_URL string
+	PORT       string
+	DB_URL     string
+	PGDATABASE string
+	PGHOST     string
+	PGPASSWORD string
+	PGPORT     string
+	PGUSER     string
 )
 
 func init() {
 	if os.Getenv("ENV") != "PROD" {
+		fmt.Println("Loading local .env file")
 		err := loadEnv()
 		if err != nil {
 			panic("Error loading .env file")
 		}
+	} else {
+		fmt.Println("Loading Prod environment variables")
 	}
 
 	PORT = getEnv("PORT", "8080")
 	DB_URL = getEnv("DATABASE_URL", "localhost:27017")
+	PGDATABASE = getEnv("PGDATABASE", "postgres")
+	PGHOST = getEnv("PGHOST", "localhost")
+	PGPASSWORD = getEnv("PGPASSWORD", "postgres")
+	PGPORT = getEnv("PGPORT", "5432")
+	PGUSER = getEnv("PGUSER", "postgres")
 }
 
 func loadEnv() error {
