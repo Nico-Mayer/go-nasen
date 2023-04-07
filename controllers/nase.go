@@ -10,9 +10,9 @@ import (
 )
 
 type createRequest struct {
-	UserIDs  []string `json:"users"`
-	AuthorID string   `json:"authorid"`
-	Reason   string   `json:"reason"`
+	Users    []models.User `json:"users"`
+	AuthorID string        `json:"authorid"`
+	Reason   string        `json:"reason"`
 }
 
 func CreateNase(res http.ResponseWriter, req *http.Request) {
@@ -28,12 +28,14 @@ func CreateNase(res http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	if len(reqBody.UserIDs) == 0 {
+	if len(reqBody.Users) == 0 {
 		http.Error(res, "Missing or invalid users", http.StatusBadRequest)
 		return
 	}
 
-	for _, id := range reqBody.UserIDs {
+	for _, user := range reqBody.Users {
+		go models.InsertUser(&user)
+
 		newUUID, err := uuid.NewRandom()
 		if err != nil {
 			fmt.Println("Error generating UUID:", err)
@@ -42,7 +44,7 @@ func CreateNase(res http.ResponseWriter, req *http.Request) {
 
 		newNase := models.Nase{
 			ID:       newUUID,
-			UserID:   id,
+			UserID:   user.ID,
 			AuthorID: reqBody.AuthorID,
 			Reason:   reqBody.Reason,
 		}
