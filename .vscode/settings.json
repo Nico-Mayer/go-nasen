@@ -24,7 +24,8 @@
 		"**/.project": true,
 		"**/.settings": true,
 		"**/.factorypath": true,
-		"go.mod": true
+		"go.mod": true,
+		".vscode": true
 	},
-	"hide-files.files": ["go.mod"]
+	"hide-files.files": ["go.mod", ".vscode"]
 }
