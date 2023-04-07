@@ -3,6 +3,7 @@ package models
 import (
 	"errors"
 	"fmt"
+	"time"
 
 	"github.com/google/uuid"
 	"github.com/nico-mayer/go-api/db"
@@ -13,6 +14,7 @@ type Nase struct {
 	UserID   string    `json:"userid"`
 	AuthorID string    `json:"authorid"`
 	Reason   string    `json:"reason"`
+	Created  time.Time `json:"created"`
 }
 
 func InsertNase(nase *Nase) error {
@@ -42,7 +44,7 @@ func ValidateNase(nase *Nase) error {
 }
 
 func GetNasen(id string) ([]Nase, error) {
-	query := "SELECT id, userid, authorid, reason FROM nasen WHERE userid = $1"
+	query := "SELECT id, userid, authorid, reason, created FROM nasen WHERE userid = $1"
 	rows, err := db.DB.Query(query, id)
 	if err != nil {
 		return nil, fmt.Errorf("error getting nasen: %w", err)
@@ -54,7 +56,7 @@ func GetNasen(id string) ([]Nase, error) {
 
 	for rows.Next() {
 		var nase Nase
-		err := rows.Scan(&nase.ID, &nase.UserID, &nase.AuthorID, &nase.Reason)
+		err := rows.Scan(&nase.ID, &nase.UserID, &nase.AuthorID, &nase.Reason, &nase.Created)
 		if err != nil {
 			return nil, fmt.Errorf("error scanning nase row: %w", err)
 		}

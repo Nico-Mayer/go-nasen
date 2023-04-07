@@ -74,12 +74,12 @@
     "method": "POST",
     "sortNum": 35000,
     "created": "2023-04-07T21:29:08.146Z",
-    "modified": "2023-04-07T21:29:08.146Z",
+    "modified": "2023-04-07T22:06:35.083Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"users\": [\n    {\n      \"id\": \"userid\",\n      \"name\": \"username\"\n    },\n    {\n      \"id\": \"userid2\",\n      \"name\": \"username2\"\n    }\n  ],\n  \"authorid\": \"authorid\",\n  \"reson\": \"grund\"\n}",
+      "raw": "{\n  \"users\": [\n    {\n      \"id\": \"userid\",\n      \"name\": \"username\"\n    }\n  ],\n  \"authorid\": \"authorid\",\n  \"reason\": \"grund\"\n}",
       "form": []
     },
     "tests": []
@@ -93,12 +93,12 @@
     "method": "POST",
     "sortNum": 45000,
     "created": "2023-04-07T21:29:08.147Z",
-    "modified": "2023-04-07T21:29:08.147Z",
+    "modified": "2023-04-07T22:06:39.498Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"users\": [\n    {\n      \"id\": \"userid\",\n      \"name\": \"username\"\n    },\n    {\n      \"id\": \"userid2\",\n      \"name\": \"username2\"\n    }\n  ],\n  \"authorid\": \"authorid\",\n  \"reson\": \"grund\"\n}",
+      "raw": "{\n  \"users\": [\n    {\n      \"id\": \"userid\",\n      \"name\": \"username\"\n    },\n    {\n      \"id\": \"userid2\",\n      \"name\": \"username2\"\n    }\n  ],\n  \"authorid\": \"authorid\",\n  \"reason\": \"grund\"\n}",
       "form": []
     },
     "tests": []
