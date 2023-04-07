@@ -13,25 +13,25 @@ func CreateUser(res http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	var newUser *models.User
+	var newUser models.User
 
 	if err := json.NewDecoder(req.Body).Decode(&newUser); err != nil {
-		http.Error(res, "Bad request", http.StatusBadRequest)
+		http.Error(res, "Error decoding JSON request body", http.StatusBadRequest)
 		return
 	}
 
-	if err := models.ValidateUser(newUser); err != nil {
+	if err := models.ValidateUser(&newUser); err != nil {
 		http.Error(res, err.Error(), http.StatusBadRequest)
 		return
 	}
 
-	err := models.InsertUser(newUser)
+	err := models.InsertUser(&newUser)
 	if err != nil {
 		http.Error(res, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	res.WriteHeader(http.StatusCreated)
 	res.Header().Set("Content-Type", "application/json")
+	res.WriteHeader(http.StatusCreated)
 	json.NewEncoder(res).Encode(map[string]string{"message": "User created successfully"})
 }
