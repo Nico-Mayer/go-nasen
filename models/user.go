@@ -10,7 +10,7 @@ import (
 type User struct {
 	ID    string `json:"id"`
 	Name  string `json:"name"`
-	Count int    `json:"count"`
+	Count int    `json:"nasen"`
 }
 
 func InsertUser(user *User) error {
