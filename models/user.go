@@ -8,8 +8,9 @@ import (
 )
 
 type User struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
+	ID    string `json:"id"`
+	Name  string `json:"name"`
+	Count int    `json:"count"`
 }
 
 func InsertUser(user *User) error {

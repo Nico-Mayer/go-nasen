@@ -28,6 +28,9 @@ func handleRequests() {
 	http.HandleFunc("/nase/get", controllers.GetNasen)
 	http.HandleFunc("/nase/count", controllers.CountNasen)
 
+	// Stats
+	http.HandleFunc("/stats/leaderboard", controllers.GetLeaderboard)
+
 	fmt.Println("Server listening on PORT: " + config.PORT)
 	log.Fatal(http.ListenAndServe(":"+config.PORT, nil))
 }
