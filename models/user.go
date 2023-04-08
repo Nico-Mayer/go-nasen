@@ -13,6 +13,11 @@ type User struct {
 	Count int    `json:"nasen"`
 }
 
+type UserStats struct {
+	User  User   `json:"user"`
+	Nasen []Nase `json:"nasen"`
+}
+
 func InsertUser(user *User) error {
 	_, err := db.DB.Exec("INSERT INTO users (id, name) VALUES ($1, $2)", user.ID, user.Name)
 	if err != nil {
@@ -23,7 +28,7 @@ func InsertUser(user *User) error {
 
 func GetUser(id string) (User, error) {
 	var user User
-	err := db.DB.QueryRow("SELECT (id, name) FROM users WHERE id = $1", id).Scan(&user.ID, &user.Name)
+	err := db.DB.QueryRow("SELECT id, name FROM users WHERE id = $1", id).Scan(&user.ID, &user.Name)
 	if err != nil {
 		return User{}, fmt.Errorf("error getting user: %w", err)
 	}
@@ -51,6 +56,28 @@ func GetAllUsers() ([]User, error) {
 		return nil, fmt.Errorf("error with user rows: %w", err)
 	}
 	return users, nil
+}
+
+func GetUserStats(id string) (UserStats, error) {
+	var stats UserStats
+
+	user, err := GetUser(id)
+	if err != nil {
+		return UserStats{}, fmt.Errorf("error getting user stats: %w", err)
+	}
+
+	nasen, err := GetNasen(id)
+	if err != nil {
+		return UserStats{}, fmt.Errorf("error getting user stats: %w", err)
+	}
+
+	count := len(nasen)
+
+	stats.User = user
+	stats.User.Count = count
+	stats.Nasen = nasen
+
+	return stats, nil
 }
 
 func ValidateUser(user *User) error {

@@ -35,3 +35,20 @@ func CreateUser(res http.ResponseWriter, req *http.Request) {
 	res.WriteHeader(http.StatusCreated)
 	json.NewEncoder(res).Encode(map[string]string{"message": "User created successfully"})
 }
+
+func GetUserStats(res http.ResponseWriter, req *http.Request) {
+	if req.Method != "GET" {
+		http.Error(res, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+	id := req.URL.Query().Get("id")
+	stats, err := models.GetUserStats(id)
+	if err != nil {
+		http.Error(res, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	res.Header().Set("Content-Type", "application/json")
+	res.WriteHeader(http.StatusOK)
+	json.NewEncoder(res).Encode(stats)
+}

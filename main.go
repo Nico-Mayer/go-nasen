@@ -30,6 +30,7 @@ func handleRequests() {
 
 	// Stats
 	http.HandleFunc("/stats/leaderboard", controllers.GetLeaderboard)
+	http.HandleFunc("/stats/user", controllers.GetUserStats)
 
 	fmt.Println("Server listening on PORT: " + config.PORT)
 	log.Fatal(http.ListenAndServe(":"+config.PORT, nil))

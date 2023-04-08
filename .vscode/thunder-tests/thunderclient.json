@@ -74,12 +74,12 @@
     "method": "POST",
     "sortNum": 35000,
     "created": "2023-04-07T21:29:08.146Z",
-    "modified": "2023-04-07T22:06:35.083Z",
+    "modified": "2023-04-07T21:29:08.146Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"users\": [\n    {\n      \"id\": \"userid\",\n      \"name\": \"username\"\n    }\n  ],\n  \"authorid\": \"authorid\",\n  \"reason\": \"grund\"\n}",
+      "raw": "{\n  \"users\": [\n    {\n      \"id\": \"userid\",\n      \"name\": \"username\"\n    },\n    {\n      \"id\": \"userid2\",\n      \"name\": \"username2\"\n    }\n  ],\n  \"authorid\": \"authorid\",\n  \"reson\": \"grund\"\n}",
       "form": []
     },
     "tests": []
@@ -93,12 +93,12 @@
     "method": "POST",
     "sortNum": 45000,
     "created": "2023-04-07T21:29:08.147Z",
-    "modified": "2023-04-07T22:06:39.498Z",
+    "modified": "2023-04-07T21:29:08.147Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"users\": [\n    {\n      \"id\": \"userid\",\n      \"name\": \"username\"\n    },\n    {\n      \"id\": \"userid2\",\n      \"name\": \"username2\"\n    }\n  ],\n  \"authorid\": \"authorid\",\n  \"reason\": \"grund\"\n}",
+      "raw": "{\n  \"users\": [\n    {\n      \"id\": \"userid\",\n      \"name\": \"username\"\n    },\n    {\n      \"id\": \"userid2\",\n      \"name\": \"username2\"\n    }\n  ],\n  \"authorid\": \"authorid\",\n  \"reson\": \"grund\"\n}",
       "form": []
     },
     "tests": []
@@ -173,6 +173,26 @@
     "sortNum": 85000,
     "created": "2023-04-07T21:29:08.151Z",
     "modified": "2023-04-07T21:29:08.151Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "id",
+        "value": "488328811063148554",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "a4e1722c-9356-473c-82fc-ede41e96dd25",
+    "colId": "975bff88-5dc2-46e4-873a-406dbafacd05",
+    "containerId": "",
+    "name": "UserStats Get LOCAL",
+    "url": "http://localhost:8080/stats/user?id=488328811063148554",
+    "method": "GET",
+    "sortNum": 95000,
+    "created": "2023-04-08T07:49:30.657Z",
+    "modified": "2023-04-08T07:49:59.001Z",
     "headers": [],
     "params": [
       {
